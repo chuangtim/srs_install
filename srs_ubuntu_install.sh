@@ -1,5 +1,7 @@
 #!/bin/sh
 
+path=`pwd`
+echo $path
 mkdir /tmp/srs/
 cd /tmp/srs/
 sudo apt-get install git
@@ -12,6 +14,5 @@ cd /tmp/srs/srs.oschina/trunk
 
 make
 
-cp ../../../srs.conf conf/
+cp $path/srs.conf conf/
 sudo nohup ./objs/srs -c conf/srs.conf &
-sudo ./objs/nginx/sbin/nginx
